@@ -1,7 +1,5 @@
 import express from 'express'
 
-dotenv.config()
-
 const BASE_URL = 'https://api.buurtcampus-oost.fdnd.nl/api/v1';
 
 const plants = express.Router()

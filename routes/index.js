@@ -2,7 +2,6 @@ import express from 'express'
 
 import { fetchJson } from '../helpers/fetchWrapper.js'
 
-dotenv.config()
 const API_URL = 'https://api.buurtcampus-oost.fdnd.nl/api/v1';
 const index = express.Router()
 // Maak een route voor de index
