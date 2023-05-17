@@ -1,0 +1,35 @@
+{
+  "name": "performance-matters-optimized-website",
+  "version": "1.0.0",
+  "description": "plantenstekjes over en zou je die graag willen ruilen voor een nieuw plantje? Meld je stekje hier aan",
+  "main": "server.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fdnd-task/performance-matters-optimized-website.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "ejs"
+  ],
+  "author": "Duneya, Ralph en Tolga",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Tolga1999/performance-matters-optimized-website/issues"
+  },
+  "homepage": "https://github.com/Tolga1999/performance-matters-optimized-website#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "gsap": "^3.11.5"
+  }
+}

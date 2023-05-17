@@ -1,0 +1,1028 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font: 100%/1.4 Arial, Helvetica, sans-serif;
+  font-family: var(--main-font);
+}
+
+:root {
+  --background-color: rgba(251, 253, 252, 1);
+  --background-color-green: #E5F6DF;
+  --primary-color: rgba(51, 52, 103, 1);
+  --secondary-color: rgba(229, 246, 223, 1);
+  --third-color: #F26F21;
+  --main-font: 'Mukta', sans-serif;
+  --main-box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  --text-color-white: white;
+  --text-color-black: black;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.footer-social_media-button {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.footer-social_media-button img {
+  width: 100%;
+}
+
+/* index page */
+.home-page {
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.home-page_info-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 800;
+  margin: 32px 0 32px 0;
+  color: var(--primary-color);
+}
+
+.home-page_info-title-secondary-color {
+  font-weight: 800;
+  color: var(--third-color);
+}
+
+.home-page_info-second-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.home-page_info-second-title::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+.home-page_info>p {
+  line-height: 140% !important;
+  margin-bottom: 1rem;
+}
+
+.home-page_img {
+  position: relative;
+}
+
+.home-page_img-plant {
+  width: 100%;
+  height: 100%;
+}
+
+.home-page_img-plant-icon {
+  position: absolute;
+  left: 6%;
+  top: 10%;
+  width: 100%;
+  z-index: -1;
+
+}
+
+.home-page_title-h2 {
+  font-size: 32px;
+  margin: 30px 0;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.home-plant-container {
+  color: var(--primary-color);
+  background-image: linear-gradient(var(--background-color-green), var(--background-color));
+  min-height: 20em;
+  min-width: 25em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--main-box-shadow);
+  margin: 5em 0 0 0;
+}
+
+.footer-social_media-button svg {
+  width: 4em;
+  padding: 0 .5em;
+  fill: var(--primary-color)
+}
+
+/* nav */
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.plant-swap-logo {
+  width: 8rem;
+  height: auto;
+}
+
+.menu-icon{
+  width: 2.75em;
+  height: 4.25em;
+}
+
+.main-nav_list {
+  position: absolute;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+  background-color: white;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+  font-size: 20px;
+  gap: 1rem;
+  padding: 5rem 2rem;
+}
+
+.main-nav_list a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid var(--primary-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-nav_list a:nth-of-type(2) {
+  color: var(--third-color);
+}
+
+.main-nav_list-open {
+  display: block;
+  transform: translateX(0);
+}
+
+.chevron-right {
+  width: 1.5rem;
+}
+
+.close-button {
+  width: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+/* Workshops */
+
+.our-workshops {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+.workshops-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 5rem 0 0 0;
+}
+
+.our-workshops-title {
+  font-size: 32px;
+}
+
+.our-workshops-title span:nth-of-type(1) {
+  font-weight: 800;
+}
+
+.our-workshops-title span:nth-of-type(2) {
+  color: var(--third-color);
+  font-weight: 800;
+}
+
+.our-workshops-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-weight: 800;
+  width: 80%;
+  line-height: 140%;
+  max-width: 30rem;
+}
+
+.workshops-page-main-image {
+  width: 50%;
+  max-width: 20rem;
+  margin: 1rem 0 0 0;
+}
+
+.time-line {
+  width: 90%;
+  margin: 7em auto;
+}
+
+.time-line-all-items {
+  position: relative;
+}
+
+.time-line-all-items::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: var(--background-color-green);
+  left: 9px;
+}
+
+.time-line-item {
+  margin-bottom: 3em;
+  position: relative;
+}
+
+.time-line-item-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary-color);
+  padding: 5px 0 5px 0;
+}
+
+.time-line-item-text {
+  background-image: linear-gradient(var(--background-color-green), var(--background-color));
+  padding: 1rem;
+  border-radius: 24px;
+  margin: 1rem 0 0 0;
+  font-weight: 700;
+}
+
+.time-line-item:last-child {
+  margin-bottom: 0;
+}
+
+.time-line-dot {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--background-color-green)
+}
+
+.time-line-item:nth-child(odd),
+.time-line-item:nth-child(even) {
+  padding-left: 37px;
+}
+
+.time-line-image {
+  width: 100%;
+  margin: 1em auto;
+}
+
+/* DUURZAAMHEID */
+
+.durability {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem 0 0 0;
+  font-weight: 800;
+}
+
+.durability h1 {
+  color: var(--primary-color);
+}
+
+.durability h1 span {
+  font-weight: 800;
+  font-size: 32px;
+}
+
+.durability h1 span:nth-of-type(2) {
+  color: var(--third-color);
+}
+
+.durability h1 span:nth-of-type(2) {
+  color: var(--third-color);
+}
+
+.durability-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0 0 0;
+  line-height: 140%;
+}
+
+.durability-text-item-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.durability-text-item-2 section,
+.durability-text-item-3 section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.durability-text-item-1 p {
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.durability-text-item-2 p,
+.durability-text-item-3 p {
+  line-height: 140%;
+}
+
+.durability-text-item-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.durability-text-item-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.durability-image {
+  width: 10rem;
+  margin: 2rem 0;
+}
+
+.durability-image-1 {
+  width: 10rem;
+  margin: 2rem 0;
+}
+
+.durability-image-2 {
+  width: 10rem;
+  margin: 2rem 0;
+}
+
+/* PLANTS */
+.desktop-plants {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.alle-stekjes-plants-h1 {
+  color: var(--primary-color);
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center;
+  margin: 0.5em;
+  margin-bottom: 1em;
+}
+
+.alle-stekjes-plants-h1-span {
+  color: var(--third-color);
+  font-weight: 800;
+}
+
+.plant-container {
+  color: var(--primary-color);
+  background-image: linear-gradient(var(--background-color-green), var(--background-color));
+  min-height: 20em;
+  min-width: 25em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--main-box-shadow);
+}
+
+.plant-container-text {
+  padding: 1.5em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plant-container-text>h2 {
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-bottom: 0.5em;
+}
+
+.plant-container-spans>span {
+  font-weight: 1em;
+  font-weight: 600;
+  margin-bottom: 0.75em;
+  display: flex;
+  align-items: center;
+}
+
+.plant-container-spans>span>svg {
+  margin-right: 0.5em;
+}
+
+.plant-container-img {
+  width: 14em;
+  height: 18em;
+  object-fit: cover;
+  border-radius: 0 0.5em 0.5em 0;
+  min-height: 100%;
+  flex-grow: 2;
+}
+
+.plant-container-link {
+  background-color: var(--primary-color);
+  color: var(--text-color-white);
+  border: none;
+  padding: 0.5em;
+  border-radius: 1em;
+  text-align: center;
+  text-decoration: none;
+  width: 9em;
+}
+
+/* PLANTS END */
+
+/* PLANT */
+.single-plant-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5em;
+
+  color: var(--primary-color);
+  background-image: linear-gradient(var(--background-color-green), var(--background-color));
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--main-box-shadow);
+  margin-bottom: 3em;
+}
+
+.single-plant-text-container {
+  padding: 1.25em;
+}
+
+.single-plant-h2 {
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 0.5em;
+}
+
+.single-plant-spans {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-plant-spans>span {
+  margin-bottom: 1em;
+}
+
+.single-plant-span-container {
+  display: flex;
+  align-items: center;
+}
+
+.single-plant-span-container>svg {
+  transform: translate(-0.25em);
+  margin-right: 0.5em;
+}
+
+.single-plant-span-container>p {
+  font-size: 1.25em;
+  font-weight: 600;
+
+}
+
+.plant-data {
+  margin-left: 2.5em;
+  margin-top: 0.25em;
+  font-weight: bold;
+  color: var(--text-color-black);
+  line-height: 1.35;
+}
+
+.single-plant-container-img {
+  object-fit: cover;
+  border-radius: 0 0 2em 2em;
+  width: auto;
+  height: 20em;
+}
+
+.korte-beschrijving-container {
+  padding: 1.25em;
+}
+
+.beschrijving-h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.25em;
+}
+
+.korte-beschrijving-container>p {
+  line-height: 1.75;
+  color: var(--text-color-black);
+}
+
+.desktop-plant-beschrijving {
+  display: none;
+}
+
+/* PLANT END*/
+
+
+/* CONTACT */
+
+.contact {
+  margin: 5rem auto 0 auto;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  color: var(--primary-color);
+  max-width: 50rem;
+
+}
+
+.contact h1 {
+  font-size: 32px;
+  width: fit-content;
+  margin: 0 auto 3rem auto;
+}
+
+.contact h1 span:nth-of-type(1) {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.contact h1 span:nth-of-type(2) {
+  color: var(--third-color);
+  font-weight: 800;
+}
+
+.contact-list {
+  width: fit-content;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+}
+
+.contact-list li {
+  font-weight: 700;
+}
+
+.location-iframe p {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.form-iframe-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 20rem;
+}
+
+form label {
+  font-weight: 700;
+  padding: 0 0 0 0.5rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  margin: 0.5rem 0 1.5rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+form input:last-of-type {
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  background-color: var(--primary-color);
+  color: white;
+  width: 8rem;
+  border: none;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+form input:last-of-type:hover {
+  opacity: 90%;
+}
+
+.iframe-contact-wrapper {
+  margin: 3rem 0 0 0;
+}
+
+@media only screen and (min-width: 768px) {
+
+  /* NAV */
+
+  header {
+    align-items: center;
+  }
+
+  nav {
+    padding: 0;
+    width: fit-content;
+  }
+
+  .plant-swap-logo {
+    width: 8rem;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .main-nav_list {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    padding: 0;
+    gap: 0.5rem;
+  }
+
+  .chevron-right {
+    display: none;
+  }
+
+  .close-button {
+    display: none;
+  }
+
+  .main-nav_list a {
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    height: fit-content;
+  }
+
+  .main-nav_list a:hover {
+    border: 1px solid var(--third-color);
+    border-radius: 24px;
+  }
+
+  /* NAV END */
+  /* INDEX PAGE */
+  .home-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  .home-page_info-title {
+    text-align: center;
+    font-size: 80px;
+
+  }
+
+  .home-page_img-plant-icon {
+    position: absolute;
+    left: 50%;
+    top: 11%;
+    width: 50%;
+    z-index: -1;
+  }
+
+  .home-page_info-second-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .home-page_info-second-title::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+  }
+
+  .home-page_img-plant img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-plant-container {
+    color: var(--primary-color);
+    background-image: linear-gradient(var(--background-color-green), var(--background-color));
+    height: 100%;
+    width: 30em;
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--main-box-shadow);
+  }
+
+  /* INDEX PAGE END */
+  /* WORKSHOPS */
+
+  .workshops-wrapper {
+    margin: 0;
+  }
+
+  .our-workshops {
+    flex-direction: row;
+    position: relative;
+    margin: 5rem 0 0 0;
+    justify-content: center;
+  }
+
+  .our-workshops-title {
+    font-size: 60px;
+  }
+
+  .our-workshops-text {
+    max-width: 100%;
+  }
+
+  .workshops-page-main-image {
+    width: 50%;
+    right: -10%;
+  }
+
+  .time-line-item:nth-of-type(odd) {
+    margin-left: auto;
+  }
+
+  .time-line-item:nth-of-type(odd) p {
+    margin-left: auto;
+  }
+
+  .time-line-all-items::before {
+    left: calc(50% - 1px);
+  }
+
+  .time-line-item:nth-child(odd) {
+    padding-right: calc(50% + 30px);
+    text-align: right;
+  }
+
+  .time-line-item:nth-child(even) {
+    padding-left: calc(50% + 30px);
+  }
+
+  .time-line-dot {
+    left: calc(50% - 10px);
+  }
+
+  .time-line-item-text {
+    text-align: left;
+  }
+
+  /* DURABILITY */
+
+  .durability {
+    align-items: flex-start;
+  }
+
+  .durability-text {
+    gap: 4rem;
+    margin: 0 auto 5rem auto;
+  }
+
+  .durability h1 {
+    margin: 0 auto;
+  }
+
+  .durability h1 span {
+    font-size: 60px;
+  }
+
+  .durability-text-item-1 {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .durability-text-item-1 p,
+  .durability-text-item-2 p,
+  .durability-text-item-3 p {
+    max-width: 30rem;
+  }
+
+  .durability-text-item-2 {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .durability-text-item-3 {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* PLANTS DESKTOP */
+  .plant-container {
+    min-height: 20em;
+    min-width: 30em;
+  }
+
+  .alle-stekjes-plants-h1 {
+    margin-left: 0;
+    font-size: 3em;
+  }
+
+  .desktop-plants {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 75px;
+    justify-content: center;
+  }
+
+  .plant-container {
+    max-width: 25em;
+  }
+
+  .plant-container-spans>span {
+    margin-bottom: 1.25em;
+  }
+
+  .plant-container-link {
+    max-width: 10em;
+  }
+
+  /* PLANTS DESKTOP END */
+
+  /* PLANT */
+  .single-plant-container {
+    margin: 0 auto;
+    min-width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    border-radius: 2em;
+    max-width: 25em;
+  }
+
+  .single-plant-text-container {
+    padding: 2em;
+    order: 2;
+    flex-grow: 2;
+    max-width: 55em;
+  }
+
+  .single-plant-container-img {
+    border-radius: 2em 0 0 2em;
+    width: 25em;
+    min-width: 20em;
+    height: auto;
+    order: 1;
+    max-height: 40em;
+  }
+
+  .single-plant-h2 {
+    font-size: 3em;
+  }
+
+  .korte-beschrijving-container {
+    display: none;
+  }
+
+  .single-plant-spans {
+    margin-bottom: 1.5em;
+  }
+
+  .desktop-plant-beschrijving {
+    display: inline;
+    line-height: 1.75;
+    padding-right: 5em;
+  }
+
+  .contact h1 span:nth-of-type(1) {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 60px;
+  }
+
+  .contact h1 span:nth-of-type(2) {
+    color: var(--third-color);
+    font-weight: 800;
+    font-size: 60px;
+  }
+
+  .contact-list {
+    margin: 0 0 5rem 0;
+  }
+
+  .form-iframe-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 0 4rem 0;
+  }
+
+  .iframe-contact-wrapper {
+    margin: 0;
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    header {
+      padding-right: 4rem;
+    }
+
+    .our-workshops {
+      gap: 10rem;
+    }
+
+    .our-workshops-text {
+      flex-direction: row;
+      gap: 3rem;
+    }
+
+    .durability-text-item-1 p,
+    .durability-text-item-2 p,
+    .durability-text-item-3 p {
+      max-width: 45rem;
+    }
+
+    .durability-image-1,
+    .durability-image-2,
+    .durability-image {
+      width: 20rem;
+      margin: 0 3rem;
+    }
+
+    .home-page {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .home-page_info-title {
+      text-align: left;
+      font-size: 100px;
+    }
+
+    .home-plant-container:nth-child(2) {
+      color: var(--primary-color);
+      background-image: linear-gradient(var(--background-color-green), var(--background-color));
+      height: 20em;
+      width: 30em;
+      border-radius: 0.5em;
+      margin-left: 1em;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: var(--main-box-shadow);
+    }
+
+    .home-plant-container {
+      color: var(--primary-color);
+      background-image: linear-gradient(var(--background-color-green), var(--background-color));
+      height: 100%;
+      width: 20em;
+      border-radius: 0.5em;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: var(--main-box-shadow);
+    }
+
+  }
+}

@@ -1,0 +1,47 @@
+<%- include('./partials/head.ejs') %>
+<h1 class="alle-stekjes-plants-h1">Alle <span class="alle-stekjes-plants-h1-span">Stekjes!</span></h1>
+
+<section class="desktop-plants">
+    <% stekjes.forEach(stekje => { %>
+    <section class="plant-container">
+        <div class="plant-container-text">
+            <h2><%= stekje.naam %></h2>
+            <!-- <span><%= stekje.giftig %></span>
+        <span>Makkelijk</span>
+        <span><%= stekje.voeding %></span> -->
+            <div class="plant-container-spans">
+                <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-triangle"
+                        width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#333467" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 9v2m0 4v.01" />
+                        <path
+                            d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" />
+                    </svg> Giftig</span>
+                <span> <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-leaf" width="32"
+                        height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#333467" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 21c.5 -4.5 2.5 -8 7 -10" />
+                        <path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z" />
+                    </svg> Makkelijk</span>
+                <span><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-droplet" width="32"
+                        height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#333467" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6.8 11a6 6 0 1 0 10.396 0l-5.197 -8l-5.2 8z" />
+                    </svg> 1x per week</span>
+            </div>
+
+            <a class="plant-container-link" href="/stekje?id=<%= stekje.id %>">Lees meer</a>
+        </div>
+        <picture>
+            <source
+             srcset="<%=stekje.fotos[0].smallAsWebP %>" type="image/webp" />
+             <img class="plant-container-img" src="<%=stekje.fotos[0].small %>" alt="<%= stekje.naam %>" loading="lazy">
+        </picture>
+    </section>
+    <% }) %>
+</section>
+
+<%- include('./partials/foot.ejs') %>
