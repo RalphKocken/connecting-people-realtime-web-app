@@ -34,10 +34,13 @@ _Wireflow:_
 
 _breakdown schetsen:_
 
-![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/0444611f-275d-45cd-b868-c3b1f728aec3)
-![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/07aa084a-fd71-43dd-9711-e67b1fefcab1)
-![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/4c0350a9-1c40-4410-a7d9-0d451ceeeadc)
-![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/4bb3e842-7844-498f-a004-dac77867688d)
+<img src="https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/0444611f-275d-45cd-b868-c3b1f728aec3" width="40%">
+
+<img src="https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/07aa084a-fd71-43dd-9711-e67b1fefcab1" width="39%">
+
+<img src="https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/4c0350a9-1c40-4410-a7d9-0d451ceeeadc" width="38%">
+
+<img src="https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/4bb3e842-7844-498f-a004-dac77867688d" width="42%">
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
