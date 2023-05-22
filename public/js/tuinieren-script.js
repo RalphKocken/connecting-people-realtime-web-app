@@ -107,6 +107,7 @@ Draggable.create(".lawn-mower", {
   bounds: "body",
   onDrag: function () {
     const dropArea = document.querySelector(".grass-container");
+    const overlap = "20%";
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
