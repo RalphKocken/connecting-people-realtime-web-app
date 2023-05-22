@@ -25,6 +25,20 @@ Wij hebben gewerkt aan de volgende user story:
 
 Binnen de tuinieren pagina kan je als gebruiker interactief en real time verschillende activiteiten uitvoeren met andere gebruikers. Je kan met het slepen van verschillende navigatie elementen interacties uitvoeren met zoals een bot, grasmaaier of een zaad.
 
+### Schetsen
+De volgende schetsen zijn gemaakt om de website flow beter te tonen:
+
+_Wireflow:_
+
+![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/b7d57764-dbf1-4149-a973-86f7de36cedc)
+
+_breakdown schetsen:_
+
+![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/0444611f-275d-45cd-b868-c3b1f728aec3)
+![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/07aa084a-fd71-43dd-9711-e67b1fefcab1)
+![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/4c0350a9-1c40-4410-a7d9-0d451ceeeadc)
+![image](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/112855878/4bb3e842-7844-498f-a004-dac77867688d)
+
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
 
