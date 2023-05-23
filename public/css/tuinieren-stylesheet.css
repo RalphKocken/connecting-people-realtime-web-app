@@ -36,6 +36,18 @@ nav img{
     height: 40px;
     object-fit: contain;
 }
+/* 
+.dropper{
+    box-shadow: rgb(255,215,0) 0px 5px 15px;
+} */
+
+@keyframes shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
 
 .plantbed{
     position: absolute;
@@ -45,6 +57,7 @@ nav img{
 }
 
 .fence{
+    --fence-progress: 100%;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -53,13 +66,13 @@ nav img{
     z-index: 1;
 }
 
-.wood{
-    transition: 1s ease-in;
+.plank{  
+    clip-path: inset(var(--fence-progress) 0 0 0);
 }
+.plank:nth-child(odd) {
+    clip-path: inset(0 0 var(--fence-progress) 0);
 
-/* .paint-fence{
-    fill: blue;
-} */
+}
 
 .grass-container{
     position: absolute;

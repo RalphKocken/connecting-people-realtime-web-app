@@ -12,16 +12,21 @@ Draggable.create(".paintbrush", {
     }
   },
   onDragEnd: function () {
-    const wood = document.querySelectorAll(".wood");
+    const planks = document.querySelectorAll(".plank");
     if (this.target.classList.contains("dropper")) {
-      wood.forEach((wood) => {
-        wood.style.fill = "blue";
-        gsap.to(this.target, {
-          x: 0,
-          y: 0,
-          duration: 0.2,
-          delay: 1,
-        });
+      gsap.to(planks, {
+        "--fence-progress": "0%",
+        stagger: {
+          amount: 4,
+        },
+        ease: "circ.out",
+        onComplete: () => {
+          gsap.to(this.target, {
+            x: 0,
+            y: 0,
+            duration: 0.2,
+          });
+        },
       });
     } else {
       gsap.to(this.target, {
