@@ -1,4 +1,3 @@
-import express from 'express'
 import index from './routes/index.js'
 import plants from './routes/plants.js'
 import plant from './routes/plant.js'
@@ -6,32 +5,43 @@ import workshops from './routes/workshops.js'
 import duurzaamheid from './routes/duurzaamheid.js'
 import contact from './routes/contact.js'
 import tuinieren from './routes/tuinieren.js'
-const server = express()
 
-// Stel het poortnummer in
-server.set('port', process.env.PORT || 8000)
+import * as path from 'path'
+import { Server } from 'socket.io'
+import express from 'express'
+import http from "http"
 
-// Stel de view engine in
-server.set('view engine', 'ejs')
-server.set('views', './views')
+const app = express()
+const server = http.createServer(app)
+const ioServer = new Server(server)
 
 // Stel de public map in
-server.use(express.static('public'))
+app.use(express.static(path.resolve('public')))
 
-server.use(express.json())
-server.use(express.urlencoded({ extended: true }))
+// start van socket server
+ioServer.on('connection', (client) => {
+  console.log( client.id + ' user connected');
 
-server.use(index)
-server.use(plants)
-server.use(workshops)
-server.use(duurzaamheid)
-server.use(plant)
-server.use(contact)
-server.use(tuinieren)
+  // user disconnected
+  client.on("disconnect", () =>{
+    console.log( client.id + ' user disconnected')
+  })
+
+});
+
+// Stel de view engine in
+app.set('view engine', 'ejs')
+app.set('views', './views')
+
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}))
+
+// gebruik maken van verschillende imports
+app.use(index, plants, workshops, duurzaamheid, plant, contact, tuinieren)
 
 // Start met luisteren
-server.listen(server.get('port'), () => {
-  console.log(`Application started on http://localhost:${server.get('port')}`)
-})
-
-
+server.listen(8000, () => {
+  console.log('listening on http://localhost:8000');
+});

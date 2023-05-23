@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Buurtcampus">
-    <meta name="keywords" content="HTML,CSS,Node,JS,EJS">
-    <meta name="author" content="Duneya, Ralph en Tolga">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="og:title" property="og:title" content="Duneya, Ralph en Tolga">
-    <link rel="shortcut icon" href="/assets/fav-icon-plant-swap.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700;800&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>PLANT SWAP</title>
-   
-  </head>
-  <body>  
-    <%- include('./nav.ejs') %>
-    <main class="container">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Buurtcampus">
+  <meta name="keywords" content="HTML,CSS,Node,JS,EJS">
+  <meta name="author" content="Duneya, Ralph en Tolga">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" property="og:title" content="Duneya, Ralph en Tolga">
+  <link rel="shortcut icon" href="/assets/fav-icon-plant-swap.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700;800&family=Nunito:wght@400;700&display=swap"
+    rel="stylesheet">
 
-    <script src="js/script.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <!-- io server implementation -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <title>PLANT SWAP</title>
+
+</head>
+
+<body>
+  <%- include('./nav.ejs') %>
+  <main class="container">

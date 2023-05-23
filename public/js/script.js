@@ -1,3 +1,6 @@
+// gebruik van socket
+let client = io();
+
 const menuIcon = document.querySelector(".menu-icon")
 const navList = document.querySelector(".main-nav_list")
 const body = document.querySelector('body')
