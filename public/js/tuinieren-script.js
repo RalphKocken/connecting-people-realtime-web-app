@@ -4,8 +4,7 @@ Draggable.create(".paintbrush", {
   bounds: "body",
   onDrag: function (e) {
     console.log(e);
-
-    const dropArea = document.querySelector(".wood");
+    const dropArea = document.querySelector(".fence");
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
@@ -13,7 +12,7 @@ Draggable.create(".paintbrush", {
     }
   },
   onDragEnd: function () {
-    const wood = document.querySelectorAll(".wood path");
+    const wood = document.querySelectorAll(".wood");
     if (this.target.classList.contains("dropper")) {
       wood.forEach((wood) => {
         wood.style.fill = "blue";
@@ -29,7 +28,6 @@ Draggable.create(".paintbrush", {
         x: 0,
         y: 0,
         duration: 0.2,
-        delay: 1,
       });
     }
   },

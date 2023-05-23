@@ -46,13 +46,14 @@ nav img{
 
 .fence{
     position: absolute;
-    top: 75%;
+    bottom: 0;
     right: 0;
     width: 100px;
     height: auto;
+    z-index: 1;
 }
 
-.wood path{
+.wood{
     transition: 1s ease-in;
 }
 
@@ -309,7 +310,6 @@ nav img{
 
     .fence{
         width: 150px;
-        top: 70%;
     }
 
     .birdhouse{
@@ -466,6 +466,10 @@ nav img{
             transform: rotateY(180deg);
             left: -150px;
         }
+    }
+
+    .fence{
+        width: 250px;
     }
 
 }
