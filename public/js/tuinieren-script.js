@@ -159,6 +159,8 @@ Draggable.create(".watering-can", {
   onDragEnd: function () {
     const flowers = document.querySelectorAll(".flower");
     if (this.target.classList.contains("dropper")) {
+      // this.target.classList.add("tilt-can");
+      // this.target.addEventListener("animationend", () => {
       flowers.forEach((flower) => {
         flower.classList.add("flower-animation");
         flower.addEventListener("animationend", () => {
@@ -170,6 +172,7 @@ Draggable.create(".watering-can", {
           });
         });
       });
+      // });
     } else {
       gsap.to(this.target, {
         x: 0,
