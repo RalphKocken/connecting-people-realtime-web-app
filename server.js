@@ -19,13 +19,28 @@ const ioServer = new Server(server)
 app.use(express.static(path.resolve('public')))
 
 // start van socket server
-ioServer.on('connection', ( socket ) => { 
-  console.log( socket.server.engine.clientsCount + ' user connected'); 
+ioServer.on('connection', (socket) => {
 
-  // disconnect
-  socket.on("disconnect", () =>{
-    console.log( socket.server.engine.clientsCount + ' user disconnected')
-   
+
+  console.log( socket.id + ' user connected');
+
+  // user disconnected
+  socket.on('disconnect', () =>{
+    console.log( socket.id + ' user disconnected')
+  })
+
+  // wood colour
+  socket.on('wood-colour', (colorData) =>{
+    ioServer.emit('wood-colour', colorData)
+  })
+
+  // active users
+  socket.on('active-users', () =>{
+
+  let count = socket.server.engine.clientsCount
+  console.log("users connected: " + count)
+
+  ioServer.emit('active-users', count)
   })
 
   // active users afhandeling 
