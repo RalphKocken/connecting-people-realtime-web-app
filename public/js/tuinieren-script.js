@@ -1,9 +1,30 @@
+// gebruik van socket
+let client = io();
+
+// selecteren van alle hekken
+const wood = document.querySelectorAll(".wood");
+
+// server side afhandeling van de emit
+client.on('wood-colour', (woodColour) => {
+  paintingWood(woodColour);
+})
+
+// server side afhandeling van aantal connected users
+client.emit('active-users')
+
+client.on('active-users', (count) => {
+  console.log("users aantal: " + count)
+
+  let h1Name = document.querySelector('.test-h1')
+  h1Name.innerHTML = count
+})
+
 const overlap = "50%";
 
 Draggable.create(".paintbrush", {
   bounds: "body",
+
   onDrag: function (e) {
-    console.log(e);
     const dropArea = document.querySelector(".fence");
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
@@ -11,27 +32,36 @@ Draggable.create(".paintbrush", {
       this.target.classList.remove("dropper");
     }
   },
+
   onDragEnd: function () {
-    const wood = document.querySelectorAll(".wood");
     if (this.target.classList.contains("dropper")) {
-      wood.forEach((wood) => {
-        wood.style.fill = "blue";
-        gsap.to(this.target, {
-          x: 0,
-          y: 0,
-          duration: 0.2,
-          delay: 1,
-        });
-      });
-    } else {
+
+      client.emit('wood-colour', 'wood-colour-red');
+
       gsap.to(this.target, {
         x: 0,
         y: 0,
         duration: 0.2,
+        delay: 1,
+      });
+    } else{
+      gsap.to(this.target, {
+        x: 0,
+        y: 0,
+        duration: 0.2,
+        delay: 1,
       });
     }
   },
+
 });
+
+// fillen van kleur op de svg
+function paintingWood(woodColour) {
+  wood.forEach((wood) => {
+    wood.classList.add(woodColour);
+  });
+}
 
 Draggable.create(".bird-seed", {
   bounds: "body",

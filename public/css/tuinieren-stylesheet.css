@@ -284,6 +284,11 @@ nav img{
     width: 10px;
 }
 
+/* TEST */
+.wood-colour-red{
+    fill: red;
+}
+
 @keyframes grow-flower{
     0%{
         opacity: 0;
