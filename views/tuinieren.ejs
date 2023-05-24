@@ -7,18 +7,25 @@
     <link href="/css/tuinieren-stylesheet.css" rel="stylesheet">
     <script src="/js/tuinieren-script.js" defer></script>
       <!-- io server implementation -->
-  <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
     <title>Tuinieren</title>
 </head>
         <body>
-
+            <main>
             <div class="info">
-                <p class="blackboard-text">Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes!</p>
+                <p class="blackboard-text">Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes!
+                <img src="/assets/start.png" class="start-button">
+                </p>
+          
             </div>
          
             <nav>
                 <a href="/"><img src="/assets/backbutton.png" class="back-button"></a>
-                <span class="logit"></span>
+                <!-- <span class="logit"></span> -->
                 <img src="/assets/bone.png" class="bone">
                 <img src="/assets/lawnmower.png" class="lawn-mower">
                 <img src="/assets/bird-seed.png" class="bird-seed">
@@ -26,6 +33,7 @@
                 <img src="/assets/paintbrush1.png" class="paintbrush">
             </nav>
             <img src="/assets/background.jpg" class="background-image">
+            <img src="/assets/people.png" class="people-amount">
             <img src="/assets/plantbed.png" class="plantbed">
             <div class="flowerbed">
                 <img src="/assets/blueflower.png" class="flower blueflower">
@@ -52,6 +60,7 @@
             <img src="/assets/birdhouse.png" class="birdhouse">
             <img src="/assets/runningdog.gif" class="dog">
             <section class="bird"></section>
+        </main>
             
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Draggable.min.js"></script>    

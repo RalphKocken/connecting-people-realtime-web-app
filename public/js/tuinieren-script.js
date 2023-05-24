@@ -1,13 +1,13 @@
-let client = io()
-client.emit('active-users')
+let client = io();
+client.emit("active-users");
 
 // server side aantal clients live
-client.on('active-users', (count) =>{
-  console.log(count)
-//selecter de span van tuinieren.ejs
-  let clientslive = document.querySelector('.logit ')
-  clientslive.innerHTML = count
-})
+client.on("active-users", (count) => {
+  console.log(count);
+  //selecter de span van tuinieren.ejs
+  let clientslive = document.querySelector(".logit ");
+  clientslive.innerHTML = count;
+});
 
 const overlap = "50%";
 

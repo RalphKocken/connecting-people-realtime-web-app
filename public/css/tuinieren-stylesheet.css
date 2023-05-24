@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+:root{
+    --blackboard-font: 'Caveat', cursive;
+}
+
 body{
     width: 100vw;
     height: 100vh;
@@ -18,19 +22,57 @@ body{
     top: 0;
 }
 
-.info{
-    position: relative;
-    object-fit: cover;
-    background-image: url("/assets/blackboard.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 90%;
-    height: 50%;
+.info{  
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(255,255,255, 0.5);
+    color: white;
     margin: 0 auto;
-    display: none;
+    font-family: var(--blackboard-font);
+    font-size: 50px;
+    z-index: 1;
 }
 
+.info-dropper{
+    animation: info-animation 1s ease-out forwards;
+}
 
+@keyframes info-animation{
+    100%{
+        transform: translateY(-100vh);
+    }
+}
+
+.blackboard-text{
+    color: white;
+    width: 90%;
+    padding: 3rem;
+    margin: 10rem auto;
+    background-color: #274C43;
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+    border: 20px solid #966F33;
+    border-radius: 5px;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.start-button{
+    width: 8rem;
+    transition: 0.1s linear;
+}
+
+.start-button:hover{
+    transform: scale(1.1);
+}
+
+.people-amount{
+    width: 5rem;
+}
 
 nav{
     position: absolute;
@@ -300,7 +342,6 @@ nav img{
     right: 55%;
     width: 8px;
 }
-
 
 .pinkflower{
     top: 60%;
