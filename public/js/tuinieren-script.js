@@ -6,7 +6,7 @@ client.on("active-users", (count) => {
   console.log(count);
   //selecter de span van tuinieren.ejs
   let clientslive = document.querySelector(".logit ");
-  clientslive.innerHTML = count;
+  clientslive.innerHTML = count + " spelers";
 });
 
 const overlap = "50%";
