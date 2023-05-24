@@ -412,6 +412,10 @@ nav img{
         width: 100px;
     }
 
+    .client-count{
+    background-color: rgb(255 220 160);;
+      
+    }
     @keyframes bird-animation{
         0%{
             top: -100px;
