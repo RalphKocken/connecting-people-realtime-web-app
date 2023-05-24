@@ -11,6 +11,14 @@ client.on("active-users", (count) => {
 
 const overlap = "50%";
 
+const startButton = document.querySelector(".start-button");
+const infoBox = document.querySelector(".info");
+
+startButton.addEventListener("click", function () {
+  infoBox.style.background = "transparent";
+  infoBox.classList.add("info-dropper");
+});
+
 Draggable.create(".paintbrush", {
   bounds: "body",
   onDrag: function (e) {

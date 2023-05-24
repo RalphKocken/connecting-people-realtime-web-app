@@ -32,10 +32,11 @@ body{
     font-family: var(--blackboard-font);
     font-size: 50px;
     z-index: 1;
+    transition: 0.1s linear;
 }
 
 .info-dropper{
-    animation: info-animation 1s ease-out forwards;
+    animation: info-animation 1s ease-out 0.1s forwards;
 }
 
 @keyframes info-animation{
