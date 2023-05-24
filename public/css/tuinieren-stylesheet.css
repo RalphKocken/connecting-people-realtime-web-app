@@ -32,10 +32,11 @@ body{
     font-family: var(--blackboard-font);
     font-size: 50px;
     z-index: 1;
+    transition: 0.1s linear;
 }
 
 .info-dropper{
-    animation: info-animation 1s ease-out forwards;
+    animation: info-animation 0.3s ease-out 0.1s forwards;
 }
 
 @keyframes info-animation{
@@ -48,7 +49,7 @@ body{
     color: white;
     width: 90%;
     padding: 3rem;
-    margin: 10rem auto;
+    margin: 5rem auto 0 auto;
     background-color: #274C43;
     font-family: 'Caveat', cursive;
     font-size: 32px;
@@ -416,6 +417,10 @@ nav img{
         width: 100px;
     }
 
+    .client-count{
+    background-color: rgb(255 220 160);;
+      
+    }
     @keyframes bird-animation{
         0%{
             top: -100px;
