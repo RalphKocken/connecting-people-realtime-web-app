@@ -15,8 +15,8 @@ client.emit('active-users')
 client.on('active-users', (count) => {
   console.log("users aantal: " + count)
 
-  let h1Name = document.querySelector('.test-h1')
-  h1Name.innerHTML = count
+  let clientslive = document.querySelector(".logit ");
+  clientslive.innerHTML = count;
 })
 
 const overlap = "50%";
@@ -34,17 +34,26 @@ Draggable.create(".paintbrush", {
   },
 
   onDragEnd: function () {
+    
+      // client.emit('wood-colour', 'wood-colour-red');
+
+    const planks = document.querySelectorAll(".plank");
     if (this.target.classList.contains("dropper")) {
-
-      client.emit('wood-colour', 'wood-colour-red');
-
-      gsap.to(this.target, {
-        x: 0,
-        y: 0,
-        duration: 0.2,
-        delay: 1,
+      gsap.to(planks, {
+        "--fence-progress": "0%",
+        stagger: {
+          amount: 4,
+        },
+        ease: "circ.out",
+        onComplete: () => {
+          gsap.to(this.target, {
+            x: 0,
+            y: 0,
+            duration: 0.2,
+          });
+        },
       });
-    } else{
+    } else {
       gsap.to(this.target, {
         x: 0,
         y: 0,
@@ -184,6 +193,8 @@ Draggable.create(".watering-can", {
   onDragEnd: function () {
     const flowers = document.querySelectorAll(".flower");
     if (this.target.classList.contains("dropper")) {
+      // this.target.classList.add("tilt-can");
+      // this.target.addEventListener("animationend", () => {
       flowers.forEach((flower) => {
         flower.classList.add("flower-animation");
         flower.addEventListener("animationend", () => {
@@ -195,6 +206,7 @@ Draggable.create(".watering-can", {
           });
         });
       });
+      // });
     } else {
       gsap.to(this.target, {
         x: 0,

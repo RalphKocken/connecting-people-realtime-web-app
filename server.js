@@ -43,6 +43,12 @@ ioServer.on('connection', (socket) => {
   ioServer.emit('active-users', count)
   })
 
+  // active users afhandeling 
+  socket.on('active-users', () =>{
+    let count = socket.server.engine.clientsCount 
+
+    ioServer.emit('active-users', count)
+  })
 });
 
 // Stel de view engine in
