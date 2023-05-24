@@ -19,14 +19,21 @@ const ioServer = new Server(server)
 app.use(express.static(path.resolve('public')))
 
 // start van socket server
-ioServer.on('connection', (client) => {
-  console.log( client.id + ' user connected');
+ioServer.on('connection', ( socket ) => { 
+  console.log( socket.server.engine.clientsCount + ' user connected'); 
 
-  // user disconnected
-  client.on("disconnect", () =>{
-    console.log( client.id + ' user disconnected')
+  // disconnect
+  socket.on("disconnect", () =>{
+    console.log( socket.server.engine.clientsCount + ' user disconnected')
+   
   })
 
+  // active users afhandeling 
+  socket.on('active-users', () =>{
+    let count = socket.server.engine.clientsCount 
+
+    ioServer.emit('active-users', count)
+  })
 });
 
 // Stel de view engine in
