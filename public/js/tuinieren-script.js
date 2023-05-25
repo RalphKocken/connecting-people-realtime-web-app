@@ -11,6 +11,9 @@ const flowers = document.querySelectorAll(".flower");
 const lawnMower = document.querySelector(".lawn-mower-big");
 const grass = document.querySelectorAll(".grass");
 
+// selecteren van vogeltje
+const bird = document.querySelector(".bird");
+
 // server side afhandeling van de woodcolour emit
 client.on('wood-colour', (woodColour) => {
   paintingWood(woodColour);
@@ -24,6 +27,11 @@ client.on('grow-flowers', (flowersAnimation) => {
 // server afhandeling emit lawn mower animatie
 client.on('lawn-mower', (lawnMowerAnimation) => {
   lawnMowerFunction(lawnMowerAnimation);
+})
+
+// server afhandeling emit bird fly
+client.on('fly-bird', () => {
+  flyBird();
 })
 
 
@@ -93,7 +101,6 @@ function paintingWood(woodColour) {
 Draggable.create(".bird-seed", {
   bounds: "body",
   onDrag: function () {
-    const bird = document.querySelector(".bird");
     const dropArea = document.querySelector(".birdhouse");
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
@@ -102,9 +109,10 @@ Draggable.create(".bird-seed", {
     }
   },
   onDragEnd: function () {
-    const bird = document.querySelector(".bird");
     if (this.target.classList.contains("dropper")) {
-      bird.classList.add("bird-animation");
+
+      client.emit('fly-bird');
+
       bird.addEventListener("animationend", () => {
         gsap.to(this.target, {
           x: 0,
@@ -112,7 +120,6 @@ Draggable.create(".bird-seed", {
           duration: 0.2,
           delay: 1,
         });
-        bird.classList.remove("bird-animation");
       });
     } else {
       gsap.to(this.target, {
@@ -123,6 +130,14 @@ Draggable.create(".bird-seed", {
     }
   },
 });
+
+function flyBird(){
+  bird.classList.add("bird-animation");
+
+  bird.addEventListener("animationend", () => {
+    bird.classList.remove("bird-animation");
+  })
+}
 
 Draggable.create(".bone", {
   bounds: "body",
