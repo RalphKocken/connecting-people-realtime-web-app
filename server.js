@@ -36,8 +36,12 @@ ioServer.on('connection', (socket) => {
 
   // grow flowers
   socket.on('grow-flowers', (flowerData) =>{
-    console.log(flowerData)
     ioServer.emit('grow-flowers', flowerData)
+  })
+
+  // lawn mower
+  socket.on('lawn-mower', (lawnMowerData) =>{
+    ioServer.emit('lawn-mower', lawnMowerData)
   })
 
   // active users

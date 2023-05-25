@@ -7,6 +7,10 @@ const wood = document.querySelectorAll(".wood");
 // selecteren van de bloemen
 const flowers = document.querySelectorAll(".flower");
 
+// selecteren van de lawn mower en grass
+const lawnMower = document.querySelector(".lawn-mower-big");
+const grass = document.querySelectorAll(".grass");
+
 // server side afhandeling van de woodcolour emit
 client.on('wood-colour', (woodColour) => {
   paintingWood(woodColour);
@@ -14,9 +18,15 @@ client.on('wood-colour', (woodColour) => {
 
 // server afhandeling emit flower animatie
 client.on('grow-flowers', (flowersAnimation) => {
-  console.log(flowersAnimation)
   growFlowers(flowersAnimation);
 })
+
+// server afhandeling emit lawn mower animatie
+client.on('lawn-mower', (lawnMowerAnimation) => {
+  lawnMowerFunction(lawnMowerAnimation);
+})
+
+
 
 // server side afhandeling van aantal connected users
 client.emit('active-users')
@@ -61,7 +71,7 @@ Draggable.create(".paintbrush", {
         duration: 0.2,
         delay: 1,
       });
-    } else{
+    } else {
       gsap.to(this.target, {
         x: 0,
         y: 0,
@@ -161,13 +171,12 @@ Draggable.create(".lawn-mower", {
   },
 
   onDragEnd: function () {
-    const lawnMower = document.querySelector(".lawn-mower-big");
-    const grass = document.querySelectorAll(".grass");
     if (this.target.classList.contains("dropper")) {
-      lawnMower.classList.add("lawn-mower-animation");
-      grass.forEach((grass) => {
-        grass.classList.add("grass-animation");
-      });
+
+      client.emit('lawn-mower', 'lawn-mower-animation');
+
+      // // start animatie lawn mower
+      // lawnMower.classList.add("lawn-mower-animation");
       lawnMower.addEventListener("animationend", () => {
         gsap.to(this.target, {
           x: 0,
@@ -175,6 +184,7 @@ Draggable.create(".lawn-mower", {
           duration: 0.2,
           delay: 1,
         });
+        // remove class lawn mower (voor een tweede keer)
         lawnMower.classList.remove("lawn-mower-animation");
       });
     } else {
@@ -186,6 +196,18 @@ Draggable.create(".lawn-mower", {
     }
   },
 });
+
+function lawnMowerFunction(lawnMowerAnimation) {
+
+  // start animatie lawn mower
+  lawnMower.classList.add(lawnMowerAnimation);
+
+  // start animatie grass
+  grass.forEach((grass) => {
+    grass.classList.add("grass-animation");
+  });
+
+}
 
 Draggable.create(".watering-can", {
   bounds: "body",
@@ -204,10 +226,9 @@ Draggable.create(".watering-can", {
       // this.target.addEventListener("animationend", () => {
 
       client.emit('grow-flowers', 'flower-animation');
-      console.log("EERSTE DEBUG")
       flowers.forEach((flower) => {
         // flower.classList.add("flower-animation");
-        
+
         flower.addEventListener("animationend", () => {
           gsap.to(this.target, {
             x: 0,
