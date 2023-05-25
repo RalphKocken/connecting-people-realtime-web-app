@@ -42,26 +42,17 @@ Draggable.create(".paintbrush", {
   },
 
   onDragEnd: function () {
-    
-      // client.emit('wood-colour', 'wood-colour-red');
-
-    const planks = document.querySelectorAll(".plank");
     if (this.target.classList.contains("dropper")) {
-      gsap.to(planks, {
-        "--fence-progress": "0%",
-        stagger: {
-          amount: 4,
-        },
-        ease: "circ.out",
-        onComplete: () => {
-          gsap.to(this.target, {
-            x: 0,
-            y: 0,
-            duration: 0.2,
-          });
-        },
+
+      client.emit('wood-colour', 'wood-colour-red');
+
+      gsap.to(this.target, {
+        x: 0,
+        y: 0,
+        duration: 0.2,
+        delay: 1,
       });
-    } else {
+    } else{
       gsap.to(this.target, {
         x: 0,
         y: 0,
