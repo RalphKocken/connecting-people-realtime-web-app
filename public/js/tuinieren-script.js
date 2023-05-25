@@ -14,6 +14,9 @@ const grass = document.querySelectorAll(".grass");
 // selecteren van vogeltje
 const bird = document.querySelector(".bird");
 
+// selecteren van hondje
+const dog = document.querySelector(".dog");
+
 // server side afhandeling van de woodcolour emit
 client.on('wood-colour', (woodColour) => {
   paintingWood(woodColour);
@@ -32,6 +35,11 @@ client.on('lawn-mower', (lawnMowerAnimation) => {
 // server afhandeling emit bird fly
 client.on('fly-bird', () => {
   flyBird();
+})
+
+// server afhandeling dog to home
+client.on('bone', () => {
+  dogToHome();
 })
 
 
@@ -91,7 +99,7 @@ Draggable.create(".paintbrush", {
 
 });
 
-// fillen van kleur op de svg
+// functie voor sockets
 function paintingWood(woodColour) {
   wood.forEach((wood) => {
     wood.classList.add(woodColour);
@@ -131,6 +139,7 @@ Draggable.create(".bird-seed", {
   },
 });
 
+// functie voor sockets
 function flyBird(){
   bird.classList.add("bird-animation");
 
@@ -151,9 +160,10 @@ Draggable.create(".bone", {
   },
 
   onDragEnd: function () {
-    const dog = document.querySelector(".dog");
     if (this.target.classList.contains("dropper")) {
-      dog.classList.add("dog-animation");
+
+      client.emit('bone');
+
       dog.addEventListener("animationend", () => {
         gsap.to(this.target, {
           x: 0,
@@ -161,7 +171,6 @@ Draggable.create(".bone", {
           duration: 0.2,
           delay: 1,
         });
-        dog.classList.remove("dog-animation");
       });
     } else {
       gsap.to(this.target, {
@@ -172,6 +181,14 @@ Draggable.create(".bone", {
     }
   },
 });
+
+function dogToHome(){
+  dog.classList.add("dog-animation");
+
+  dog.addEventListener("animationend", () => {
+    dog.classList.remove("dog-animation");
+  })
+}
 
 Draggable.create(".lawn-mower", {
   bounds: "body",
@@ -212,6 +229,7 @@ Draggable.create(".lawn-mower", {
   },
 });
 
+// functie voor sockets
 function lawnMowerFunction(lawnMowerAnimation) {
 
   // start animatie lawn mower
@@ -264,6 +282,7 @@ Draggable.create(".watering-can", {
   },
 });
 
+// functie voor sockets
 function growFlowers(flowersAnimation) {
   flowers.forEach((flower) => {
     flower.classList.add(flowersAnimation);

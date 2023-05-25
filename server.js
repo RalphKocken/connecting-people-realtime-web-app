@@ -51,6 +51,11 @@ ioServer.on('connection', (socket) => {
     ioServer.emit('fly-bird')
   })
 
+    // dog to home (ZONDER DATA MEE TE GEVEN!)
+    socket.on('bone', () => {
+      ioServer.emit('bone')
+    })
+
   // active users
   socket.on('active-users', () => {
 
