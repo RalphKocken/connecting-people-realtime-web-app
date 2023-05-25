@@ -182,6 +182,7 @@ Draggable.create(".bone", {
   },
 });
 
+// functie voor sockets
 function dogToHome(){
   dog.classList.add("dog-animation");
 
