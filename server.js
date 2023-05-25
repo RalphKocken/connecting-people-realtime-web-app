@@ -34,6 +34,12 @@ ioServer.on('connection', (socket) => {
     ioServer.emit('wood-colour', colorData)
   })
 
+  // grow flowers
+  socket.on('grow-flowers', (flowerData) =>{
+    console.log(flowerData)
+    ioServer.emit('grow-flowers', flowerData)
+  })
+
   // active users
   socket.on('active-users', () =>{
 

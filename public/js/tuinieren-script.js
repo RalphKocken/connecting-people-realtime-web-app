@@ -4,9 +4,18 @@ let client = io();
 // selecteren van alle hekken
 const wood = document.querySelectorAll(".wood");
 
-// server side afhandeling van de emit
+// selecteren van de bloemen
+const flowers = document.querySelectorAll(".flower");
+
+// server side afhandeling van de woodcolour emit
 client.on('wood-colour', (woodColour) => {
   paintingWood(woodColour);
+})
+
+// server afhandeling emit flower animatie
+client.on('grow-flowers', (flowersAnimation) => {
+  console.log(flowersAnimation)
+  growFlowers(flowersAnimation);
 })
 
 // server side afhandeling van aantal connected users
@@ -190,12 +199,15 @@ Draggable.create(".watering-can", {
   },
 
   onDragEnd: function () {
-    const flowers = document.querySelectorAll(".flower");
     if (this.target.classList.contains("dropper")) {
       // this.target.classList.add("tilt-can");
       // this.target.addEventListener("animationend", () => {
+
+      client.emit('grow-flowers', 'flower-animation');
+      console.log("EERSTE DEBUG")
       flowers.forEach((flower) => {
-        flower.classList.add("flower-animation");
+        // flower.classList.add("flower-animation");
+        
         flower.addEventListener("animationend", () => {
           gsap.to(this.target, {
             x: 0,
@@ -215,3 +227,9 @@ Draggable.create(".watering-can", {
     }
   },
 });
+
+function growFlowers(flowersAnimation) {
+  flowers.forEach((flower) => {
+    flower.classList.add(flowersAnimation);
+  });
+}
