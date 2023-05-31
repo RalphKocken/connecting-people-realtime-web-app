@@ -69,6 +69,9 @@ Draggable.create(".paintbrush", {
 
   onDrag: function (e) {
     const dropArea = document.querySelector(".fence");
+    wood.forEach(wood => {
+      wood.classList.add("fence-active")
+    });
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
@@ -77,6 +80,10 @@ Draggable.create(".paintbrush", {
   },
 
   onDragEnd: function () {
+    const dropArea = document.querySelector(".fence");
+    wood.forEach(wood => {
+      wood.classList.remove("fence-active")
+    });
     if (this.target.classList.contains("dropper")) {
 
       client.emit('wood-colour', 'wood-colour-red');
@@ -110,6 +117,8 @@ Draggable.create(".bird-seed", {
   bounds: "body",
   onDrag: function () {
     const dropArea = document.querySelector(".birdhouse");
+    dropArea.classList.add("birdhouse-active");
+
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
@@ -117,7 +126,10 @@ Draggable.create(".bird-seed", {
     }
   },
   onDragEnd: function () {
+    const dropArea = document.querySelector(".birdhouse");
+    dropArea.classList.remove("birdhouse-active");
     if (this.target.classList.contains("dropper")) {
+     
 
       client.emit('fly-bird');
 
@@ -152,6 +164,7 @@ Draggable.create(".bone", {
   bounds: "body",
   onDrag: function () {
     const dropArea = document.querySelector(".doghouse");
+    dropArea.classList.add("doghouse-active")
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
@@ -160,6 +173,8 @@ Draggable.create(".bone", {
   },
 
   onDragEnd: function () {
+    const dropArea = document.querySelector(".doghouse");
+    dropArea.classList.remove("doghouse-active")
     if (this.target.classList.contains("dropper")) {
 
       client.emit('bone');
@@ -195,6 +210,10 @@ Draggable.create(".lawn-mower", {
   bounds: "body",
   onDrag: function () {
     const dropArea = document.querySelector(".grass-container");
+
+    grass.forEach(grass => {
+      grass.classList.add("grass-container-active")
+    });
     const overlap = "20%";
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
@@ -204,6 +223,11 @@ Draggable.create(".lawn-mower", {
   },
 
   onDragEnd: function () {
+    const dropArea = document.querySelector(".grass-container");
+
+    grass.forEach(grass => {
+      grass.classList.remove("grass-container-active")
+    });
     if (this.target.classList.contains("dropper")) {
 
       client.emit('lawn-mower', 'lawn-mower-animation');
