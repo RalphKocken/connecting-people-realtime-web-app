@@ -23,6 +23,8 @@ body{
 }
 
 /* states */
+
+/* offline state */
 .offline-state{
     display: none;
     position: absolute;
@@ -37,7 +39,7 @@ body{
     font-size: 3em;
 }
 
-.offline-state-text{
+.state-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +48,7 @@ body{
     max-width: 40em;
 }
 
-.offline-state-text p{
+.state-container p{
     font-size: 1em;
     text-align: center;
 }
@@ -54,6 +56,29 @@ body{
 .offline-animation{
     max-width: 2.5em;
 }
+/* offline state */
+
+/* reconnecting state */
+.reconnecting-state{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(255,255,255, 0.5);
+    font-family: var(--blackboard-font);
+    z-index: 2;
+    transition: 0.1s linear;
+
+    color: orange;
+    font-size: 3em;
+}
+
+.reconnecting-animation{
+    margin-top: 0.25em;
+    width: 3.5em;
+}
+/* states end */
+
 
 .info{  
     position: absolute;
@@ -700,9 +725,9 @@ nav img{
         width: 250px;
     }
 
-    .offline-state-text{
+    /* states media queries */
+    .state-container{
         margin: 0 7em;
     }
-    
-
+    /* states media queries end */
 }

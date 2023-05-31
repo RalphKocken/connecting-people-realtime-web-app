@@ -18,31 +18,31 @@ const bird = document.querySelector(".bird");
 const dog = document.querySelector(".dog");
 
 // State messages
-// const loadingState = document.querySelector(".loading-page");
 // const emptyState = document.querySelector('span.empty')
 const errorState = document.querySelector('.offline-state')
+const loadingState = document.querySelector(".reconnecting-state");
 
 // states afhandeling
 
 // Er gaat iets mis bij het verbinden
 client.io.on('error', (error) => {
-  // loadingState.style.display = 'none'
   // emptyState.style.display = 'none'
+  loadingState.style.display = 'none'
   errorState.style.display = 'inline'
-  console.log('something is wrong')
 })
 
 // Poging om opnieuw te verbinden
 client.io.on('reconnect_attempt', (attempt) => {
-  console.log('attempting reconnection')
-
+  loadingState.style.display = 'inline'
+  errorState.style.display = 'none'
 })
 
 // Verbinding geslaagd
 client.io.on('reconnect', (attempt) => {
-  // loadingState.style.display = 'none'
   // emptyState.style.display = 'none'
+  loadingState.style.display = 'none'
   errorState.style.display = 'none'
+
   console.log('reconnected')
 })
 // states afhandeling end
