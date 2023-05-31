@@ -44,6 +44,10 @@ body{
         transform: translateY(-100vh);
     }
 }
+.info button{
+    all: unset;
+  
+}
 
 .blackboard-text{
     color: white;
@@ -61,7 +65,6 @@ body{
     align-items: center;
     gap: 2rem;
 }
-
 .start-button{
     width: 8rem;
     transition: 0.1s linear;
@@ -105,9 +108,18 @@ nav img{
     border-radius: 24px;
     font-size: 35px;
     font-weight: 900;
-    color: rgb(235, 81, 75);;
+    color: rgb(235, 81, 75);
 }
-
+.client-count img{
+    animation: shaking 1.5s linear infinite ;
+}
+@keyframes shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
 /* .dropper{
     animation: shaking 2s linear infinite;
 }
@@ -333,6 +345,27 @@ nav img{
     width: 150px;
     height: 50px;
 }
+.flowerbed::after{
+    content: url(/assets/starPng2.png);
+    transform: scale(0.09);
+    padding: .5rem 1rem 1rem 1rem;
+    position: absolute;
+    left: -16rem;
+    top: -17em;
+    animation: star-png2 1.5s linear infinite;
+  
+}
+@keyframes star-png2{
+    0%{
+        opacity: .5;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: .5;
+    }
+}
 
 .flower{
     position: absolute;
@@ -491,7 +524,16 @@ nav img{
         width: 250px;
         height: 90px;
     }
-
+    .flowerbed::after{
+        content: url(/assets/starPng2.png);
+        transform: scale(0.15);
+        padding: .5rem 1rem 1rem 1rem;
+        position: absolute;
+        left: -11rem;
+        top: -15.5em;
+        animation: star-png2 1.5s linear infinite;
+      
+    }
     @keyframes grow-flower{
         0%{
             opacity: 0;

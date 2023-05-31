@@ -289,3 +289,16 @@ function growFlowers(flowersAnimation) {
     flower.classList.add(flowersAnimation);
   });
 }
+
+// background audio 
+var speel = document.getElementById('spelen')
+speel.addEventListener('click', function() {
+	document.getElementById('bg-audio').play()
+})
+var stop = document.getElementById('stoppen')
+stop.addEventListener('click', function() {
+	document.getElementById('bg-audio').pause()
+})
+
+//loading page
+const loadingState = document.querySelector('.loading-page')

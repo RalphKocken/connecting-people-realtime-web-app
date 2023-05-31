@@ -14,15 +14,59 @@
 
     <title>Tuinieren</title>
 </head>
+<style>
+.loading-page{
+    position: absolute;
+    z-index: 99999;
+    background-color: #274C43;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    animation: breathe 3s ease-out infinite normal;
+}
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  border-top: 5px solid rgba(255,255,255, 0.5);
+  border-left: 3px solid #966F33;
+  border-bottom: 1px solid rgb(235, 81, 75);;
+  border-right: transparent;
+  animation: spinner 0.8s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+}
+@keyframes spinner{
+  0%{
+    transform: rotate(0deg);
+  }
+
+
+  100%{
+    transform: rotate(360deg);
+  }
+}
+</style>
+
         <body>
+            <!-- <div class="loading-page">
+                <div class="loader"></div>
+            </div> -->
             <main>
             <div class="info">
-                <p class="blackboard-text">Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes!
+                <div class="blackboard-text">
+                <p>Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes! </p>
+                    <audio src="/assets/natuurgeluid.mp3" loop id="bg-audio"></audio>
+                    <div>
+                    <button id="spelen"><img src="/assets/speaker-2-svgrepo-com.svg" alt="muziekje aan" width="50" height="50" ></button>
+                    <button id="stoppen"><img src="/assets/speaker-disabled-svgrepo-com.svg" alt="muziekje uit" width="50" height="50" ></button></div>
                 <img src="/assets/start.png" class="start-button">
-                </p>
-          
+               
+          </div>
             </div>
-         
             <nav>
                 <a href="/"><img src="/assets/backbutton.png" class="back-button"></a>
                 <img src="/assets/bone.png" class="bone">
