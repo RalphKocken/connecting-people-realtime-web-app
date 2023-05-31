@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/tuinieren-stylesheet.css" rel="stylesheet">
-    <script src="/js/tuinieren-script.js" defer></script>
-      <!-- io server implementation -->
-    <script src="/socket.io/socket.io.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>Tuinieren</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/tuinieren-stylesheet.css" rel="stylesheet">
+  <script src="/js/tuinieren-script.js" defer></script>
+  <!-- io server implementation -->
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Tuinieren</title>
 </head>
 <style>
-.loading-page{
+  .loading-page {
     position: absolute;
     z-index: 99999;
     background-color: #274C43;
@@ -23,92 +24,107 @@
     height: 100vh;
     text-align: center;
     animation: breathe 3s ease-out infinite normal;
-}
-.loader {
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  border-top: 5px solid rgba(255,255,255, 0.5);
-  border-left: 3px solid #966F33;
-  border-bottom: 1px solid rgb(235, 81, 75);;
-  border-right: transparent;
-  animation: spinner 0.8s linear infinite;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  right: 50%;
-  bottom: 50%;
-}
-@keyframes spinner{
-  0%{
-    transform: rotate(0deg);
   }
 
-
-  100%{
-    transform: rotate(360deg);
+  .loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border-top: 5px solid rgba(255, 255, 255, 0.5);
+    border-left: 3px solid #966F33;
+    border-bottom: 1px solid rgb(235, 81, 75);
+    ;
+    border-right: transparent;
+    animation: spinner 0.8s linear infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
   }
-}
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 
-        <body>
-            <!-- <div class="loading-page">
+<body>
+  <!-- <div class="loading-page">
                 <div class="loader"></div>
             </div> -->
-            <main>
-            <div class="info">
-                <div class="blackboard-text">
-                <p>Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes! </p>
-                    <audio src="/assets/natuurgeluid.mp3" loop id="bg-audio"></audio>
-                    <div>
-                    <button id="spelen"><img src="/assets/speaker-2-svgrepo-com.svg" alt="muziekje aan" width="50" height="50" ></button>
-                    <button id="stoppen"><img src="/assets/speaker-disabled-svgrepo-com.svg" alt="muziekje uit" width="50" height="50" ></button></div>
-                <img src="/assets/start.png" class="start-button">
-               
-          </div>
-            </div>
-            <nav>
-                <a href="/"><img src="/assets/backbutton.png" class="back-button"></a>
-                <img src="/assets/bone.png" class="bone">
-                <img src="/assets/lawnmower.png" class="lawn-mower">
-                <img src="/assets/bird-seed.png" class="bird-seed">
-                <img src="/assets/watering-can.png" class="watering-can">
-                <img src="/assets/paintbrush1.png" class="paintbrush">
-            </nav>
-            <img src="/assets/background.jpg" class="background-image">
-            <div class="client-count">
-                <img src="/assets/animal-client-live.png" alt="" width="50" height="50">
-                <span class="logit"></span>
-            </div>
-            <img src="/assets/plantbed.png" class="plantbed">
-            <div class="flowerbed">
-                <img src="/assets/blueflower.png" class="flower blueflower">
-                <img src="/assets/blueflower.png" class="flower blueflower2">
-                <img src="/assets/orangeflower.png" class="flower orangeflower">
-                <img src="/assets/pinkflower.png" class="flower pinkflower">
-                <img src="/assets/pinkflower.png" class="flower pinkflower2">
-                <img src="/assets/yellowflower.png" class="flower yellowflower">
-                <img src="/assets/yellowflower.png" class="flower yellowflower2">
-            </div>
-            
-            <%- include('./partials/svg/fence.svg') %>
+  <main>
 
-            <img src="/assets/lawnmower.png" class="lawn-mower-big">
-            <div class="grass-container">
-                <img src="/assets/grasspatch.png" class="grass patch-1">
-                <img src="/assets/grasspatch.png" class="grass patch-3">
-                <img src="/assets/grasspatch.png" class="grass patch-4">
-                <img src="/assets/grasspatch.png" class="grass patch-5">
-                <img src="/assets/grasspatch.png" class="grass patch-6">
-                <img src="/assets/grasspatch.png" class="grass patch-2">
-            </div>
-            <img src="/assets/doghouse.png" class="doghouse">
-            <img src="/assets/birdhouse.png" class="birdhouse">
-            <img src="/assets/runningdog.gif" class="dog">
-            <section class="bird"></section>
-        </main>
-            
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Draggable.min.js"></script>    
-        </body>
+    <!-- offline state container -->
+    <div class="offline-state">
+      <div class="offline-state-text">
+        <p>Er gaat iets mis met de verbinding, we proberen de connectie te herstellen...</p>
+        <img class="offline-animation" src="/assets/animationErrorCropped.gif">
+      </div>
+    </div>
+
+    <div class="info">
+      <!-- start text container -->
+      <div class="blackboard-text">
+        <p>Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes! </p>
+        <audio src="/assets/natuurgeluid.mp3" loop id="bg-audio"></audio>
+        <div>
+          <button id="spelen"><img src="/assets/speaker-2-svgrepo-com.svg" alt="muziekje aan" width="50"
+              height="50"></button>
+          <button id="stoppen"><img src="/assets/speaker-disabled-svgrepo-com.svg" alt="muziekje uit" width="50"
+              height="50"></button></div>
+        <img src="/assets/start.png" class="start-button">
+      </div>
+    </div>
+    <nav>
+      <a href="/"><img src="/assets/backbutton.png" class="back-button"></a>
+      <img src="/assets/bone.png" class="bone">
+      <img src="/assets/lawnmower.png" class="lawn-mower">
+      <img src="/assets/bird-seed.png" class="bird-seed">
+      <img src="/assets/watering-can.png" class="watering-can">
+      <img src="/assets/paintbrush1.png" class="paintbrush">
+    </nav>
+    <img src="/assets/background.jpg" class="background-image">
+    <div class="client-count">
+      <img src="/assets/animal-client-live.png" alt="" width="50" height="50">
+      <span class="logit"></span>
+    </div>
+    <img src="/assets/plantbed.png" class="plantbed">
+    <div class="flowerbed">
+      <img src="/assets/blueflower.png" class="flower blueflower">
+      <img src="/assets/blueflower.png" class="flower blueflower2">
+      <img src="/assets/orangeflower.png" class="flower orangeflower">
+      <img src="/assets/pinkflower.png" class="flower pinkflower">
+      <img src="/assets/pinkflower.png" class="flower pinkflower2">
+      <img src="/assets/yellowflower.png" class="flower yellowflower">
+      <img src="/assets/yellowflower.png" class="flower yellowflower2">
+    </div>
+
+    <%- include('./partials/svg/fence.svg') %>
+
+    <img src="/assets/lawnmower.png" class="lawn-mower-big">
+    <div class="grass-container">
+      <img src="/assets/grasspatch.png" class="grass patch-1">
+      <img src="/assets/grasspatch.png" class="grass patch-3">
+      <img src="/assets/grasspatch.png" class="grass patch-4">
+      <img src="/assets/grasspatch.png" class="grass patch-5">
+      <img src="/assets/grasspatch.png" class="grass patch-6">
+      <img src="/assets/grasspatch.png" class="grass patch-2">
+    </div>
+    <img src="/assets/doghouse.png" class="doghouse">
+    <img src="/assets/birdhouse.png" class="birdhouse">
+    <img src="/assets/runningdog.gif" class="dog">
+    <section class="bird"></section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Draggable.min.js"></script>
+</body>
+
 </html>

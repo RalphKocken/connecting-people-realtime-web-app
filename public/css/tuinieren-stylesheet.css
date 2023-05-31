@@ -22,6 +22,39 @@ body{
     top: 0;
 }
 
+/* states */
+.offline-state{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(255,255,255, 0.5);
+    font-family: var(--blackboard-font);
+    z-index: 1;
+    transition: 0.1s linear;
+
+    color: blue;
+    font-size: 3em;
+}
+
+.offline-state-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 40em;
+}
+
+.offline-state-text p{
+    font-size: 1em;
+    text-align: center;
+}
+
+.offline-animation{
+    max-width: 2.5em;
+}
+
 .info{  
     position: absolute;
     width: 100vw;
@@ -666,5 +699,10 @@ nav img{
     .fence{
         width: 250px;
     }
+
+    .offline-state-text{
+        margin: 0 7em;
+    }
+    
 
 }

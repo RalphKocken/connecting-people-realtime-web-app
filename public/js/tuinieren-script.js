@@ -17,6 +17,36 @@ const bird = document.querySelector(".bird");
 // selecteren van hondje
 const dog = document.querySelector(".dog");
 
+// State messages
+// const loadingState = document.querySelector(".loading-page");
+// const emptyState = document.querySelector('span.empty')
+const errorState = document.querySelector('.offline-state')
+
+// states afhandeling
+
+// Er gaat iets mis bij het verbinden
+client.io.on('error', (error) => {
+  // loadingState.style.display = 'none'
+  // emptyState.style.display = 'none'
+  errorState.style.display = 'inline'
+  console.log('something is wrong')
+})
+
+// Poging om opnieuw te verbinden
+client.io.on('reconnect_attempt', (attempt) => {
+  console.log('attempting reconnection')
+
+})
+
+// Verbinding geslaagd
+client.io.on('reconnect', (attempt) => {
+  // loadingState.style.display = 'none'
+  // emptyState.style.display = 'none'
+  errorState.style.display = 'none'
+  console.log('reconnected')
+})
+// states afhandeling end
+
 // server side afhandeling van de woodcolour emit
 client.on("wood-colour", (woodColour) => {
   paintingWood(woodColour);
@@ -320,6 +350,3 @@ var stop = document.getElementById("stoppen");
 stop.addEventListener("click", function () {
   document.getElementById("bg-audio").pause();
 });
-
-//loading page
-const loadingState = document.querySelector(".loading-page");
