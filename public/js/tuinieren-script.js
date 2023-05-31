@@ -18,37 +18,35 @@ const bird = document.querySelector(".bird");
 const dog = document.querySelector(".dog");
 
 // server side afhandeling van de woodcolour emit
-client.on('wood-colour', (woodColour) => {
+client.on("wood-colour", (woodColour) => {
   paintingWood(woodColour);
-})
+});
 
 // server afhandeling emit flower animatie
-client.on('grow-flowers', (flowersAnimation) => {
+client.on("grow-flowers", (flowersAnimation) => {
   growFlowers(flowersAnimation);
-})
+});
 
 // server afhandeling emit lawn mower animatie
-client.on('lawn-mower', (lawnMowerAnimation) => {
+client.on("lawn-mower", (lawnMowerAnimation) => {
   lawnMowerFunction(lawnMowerAnimation);
-})
+});
 
 // server afhandeling emit bird fly
-client.on('fly-bird', () => {
+client.on("fly-bird", () => {
   flyBird();
-})
+});
 
 // server afhandeling dog to home
-client.on('bone', () => {
+client.on("bone", () => {
   dogToHome();
-})
-
-
+});
 
 // server side afhandeling van aantal connected users
-client.emit('active-users')
+client.emit("active-users");
 
-client.on('active-users', (count) => {
-  console.log("users aantal: " + count)
+client.on("active-users", (count) => {
+  console.log("users aantal: " + count);
 
   let clientslive = document.querySelector(".logit ");
   clientslive.innerHTML = count + " spelers";
@@ -69,8 +67,8 @@ Draggable.create(".paintbrush", {
 
   onDrag: function (e) {
     const dropArea = document.querySelector(".fence");
-    wood.forEach(wood => {
-      wood.classList.add("fence-active")
+    wood.forEach((wood) => {
+      wood.classList.add("fence-active");
     });
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
@@ -81,13 +79,11 @@ Draggable.create(".paintbrush", {
 
   onDragEnd: function () {
     const dropArea = document.querySelector(".fence");
-    wood.forEach(wood => {
-      wood.classList.remove("fence-active")
+    wood.forEach((wood) => {
+      wood.classList.remove("fence-active");
     });
     if (this.target.classList.contains("dropper")) {
-
-      client.emit('wood-colour', 'wood-colour-red');
-
+      client.emit("wood-colour", "wood-colour-red");
       gsap.to(this.target, {
         x: 0,
         y: 0,
@@ -103,13 +99,15 @@ Draggable.create(".paintbrush", {
       });
     }
   },
-
 });
 
 // functie voor sockets
 function paintingWood(woodColour) {
   wood.forEach((wood) => {
     wood.classList.add(woodColour);
+    setTimeout(() => {
+      wood.classList.remove(woodColour);
+    }, "5000");
   });
 }
 
@@ -129,9 +127,7 @@ Draggable.create(".bird-seed", {
     const dropArea = document.querySelector(".birdhouse");
     dropArea.classList.remove("birdhouse-active");
     if (this.target.classList.contains("dropper")) {
-     
-
-      client.emit('fly-bird');
+      client.emit("fly-bird");
 
       bird.addEventListener("animationend", () => {
         gsap.to(this.target, {
@@ -152,19 +148,19 @@ Draggable.create(".bird-seed", {
 });
 
 // functie voor sockets
-function flyBird(){
+function flyBird() {
   bird.classList.add("bird-animation");
 
   bird.addEventListener("animationend", () => {
     bird.classList.remove("bird-animation");
-  })
+  });
 }
 
 Draggable.create(".bone", {
   bounds: "body",
   onDrag: function () {
     const dropArea = document.querySelector(".doghouse");
-    dropArea.classList.add("doghouse-active")
+    dropArea.classList.add("doghouse-active");
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
@@ -174,10 +170,9 @@ Draggable.create(".bone", {
 
   onDragEnd: function () {
     const dropArea = document.querySelector(".doghouse");
-    dropArea.classList.remove("doghouse-active")
+    dropArea.classList.remove("doghouse-active");
     if (this.target.classList.contains("dropper")) {
-
-      client.emit('bone');
+      client.emit("bone");
 
       dog.addEventListener("animationend", () => {
         gsap.to(this.target, {
@@ -198,12 +193,12 @@ Draggable.create(".bone", {
 });
 
 // functie voor sockets
-function dogToHome(){
+function dogToHome() {
   dog.classList.add("dog-animation");
 
   dog.addEventListener("animationend", () => {
     dog.classList.remove("dog-animation");
-  })
+  });
 }
 
 Draggable.create(".lawn-mower", {
@@ -211,8 +206,8 @@ Draggable.create(".lawn-mower", {
   onDrag: function () {
     const dropArea = document.querySelector(".grass-container");
 
-    grass.forEach(grass => {
-      grass.classList.add("grass-container-active")
+    grass.forEach((grass) => {
+      grass.classList.add("grass-container-active");
     });
     const overlap = "20%";
     if (this.hitTest(dropArea, overlap)) {
@@ -225,12 +220,11 @@ Draggable.create(".lawn-mower", {
   onDragEnd: function () {
     const dropArea = document.querySelector(".grass-container");
 
-    grass.forEach(grass => {
-      grass.classList.remove("grass-container-active")
+    grass.forEach((grass) => {
+      grass.classList.remove("grass-container-active");
     });
     if (this.target.classList.contains("dropper")) {
-
-      client.emit('lawn-mower', 'lawn-mower-animation');
+      client.emit("lawn-mower", "lawn-mower-animation");
 
       // // start animatie lawn mower
       // lawnMower.classList.add("lawn-mower-animation");
@@ -256,15 +250,16 @@ Draggable.create(".lawn-mower", {
 
 // functie voor sockets
 function lawnMowerFunction(lawnMowerAnimation) {
-
   // start animatie lawn mower
   lawnMower.classList.add(lawnMowerAnimation);
 
   // start animatie grass
   grass.forEach((grass) => {
     grass.classList.add("grass-animation");
+    setTimeout(() => {
+      grass.classList.remove("grass-animation");
+    }, "15000");
   });
-
 }
 
 Draggable.create(".watering-can", {
@@ -283,10 +278,9 @@ Draggable.create(".watering-can", {
       // this.target.classList.add("tilt-can");
       // this.target.addEventListener("animationend", () => {
 
-      client.emit('grow-flowers', 'flower-animation');
+      client.emit("grow-flowers", "flower-animation");
       flowers.forEach((flower) => {
         // flower.classList.add("flower-animation");
-
         flower.addEventListener("animationend", () => {
           gsap.to(this.target, {
             x: 0,
@@ -311,18 +305,21 @@ Draggable.create(".watering-can", {
 function growFlowers(flowersAnimation) {
   flowers.forEach((flower) => {
     flower.classList.add(flowersAnimation);
+    setTimeout(() => {
+      flower.classList.remove(flowersAnimation);
+    }, "10000");
   });
 }
 
-// background audio 
-var speel = document.getElementById('spelen')
-speel.addEventListener('click', function() {
-	document.getElementById('bg-audio').play()
-})
-var stop = document.getElementById('stoppen')
-stop.addEventListener('click', function() {
-	document.getElementById('bg-audio').pause()
-})
+// background audio
+var speel = document.getElementById("spelen");
+speel.addEventListener("click", function () {
+  document.getElementById("bg-audio").play();
+});
+var stop = document.getElementById("stoppen");
+stop.addEventListener("click", function () {
+  document.getElementById("bg-audio").pause();
+});
 
 //loading page
-const loadingState = document.querySelector('.loading-page')
+const loadingState = document.querySelector(".loading-page");

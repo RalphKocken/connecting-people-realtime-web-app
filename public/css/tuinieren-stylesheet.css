@@ -41,12 +41,11 @@ body{
 
 @keyframes info-animation{
     100%{
-        transform: translateY(-100vh);
+        transform: translateY(-200vh);
     }
 }
 .info button{
     all: unset;
-  
 }
 
 .blackboard-text{
@@ -65,6 +64,7 @@ body{
     align-items: center;
     gap: 2rem;
 }
+
 .start-button{
     width: 8rem;
     transition: 0.1s linear;
