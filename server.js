@@ -7,9 +7,7 @@ import contact from "./routes/contact.js";
 import tuinieren from "./routes/tuinieren.js";
 
 import * as path from "path";
-import {
-  Server
-} from "socket.io";
+import { Server } from "socket.io";
 import express from "express";
 import http from "http";
 

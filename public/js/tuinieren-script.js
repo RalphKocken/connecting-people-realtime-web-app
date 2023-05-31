@@ -19,32 +19,32 @@ const dog = document.querySelector(".dog");
 
 // State messages
 // const emptyState = document.querySelector('span.empty')
-const errorState = document.querySelector('.offline-state')
+const errorState = document.querySelector(".offline-state");
 const loadingState = document.querySelector(".reconnecting-state");
 
 // states afhandeling
 
 // Er gaat iets mis bij het verbinden
-client.io.on('error', (error) => {
+client.io.on("error", (error) => {
   // emptyState.style.display = 'none'
-  loadingState.style.display = 'none'
-  errorState.style.display = 'inline'
-})
+  loadingState.style.display = "none";
+  errorState.style.display = "inline";
+});
 
 // Poging om opnieuw te verbinden
-client.io.on('reconnect_attempt', (attempt) => {
-  loadingState.style.display = 'inline'
-  errorState.style.display = 'none'
-})
+client.io.on("reconnect_attempt", (attempt) => {
+  loadingState.style.display = "inline";
+  errorState.style.display = "none";
+});
 
 // Verbinding geslaagd
-client.io.on('reconnect', (attempt) => {
+client.io.on("reconnect", (attempt) => {
   // emptyState.style.display = 'none'
-  loadingState.style.display = 'none'
-  errorState.style.display = 'none'
+  loadingState.style.display = "none";
+  errorState.style.display = "none";
 
-  console.log('reconnected')
-})
+  console.log("reconnected");
+});
 // states afhandeling end
 
 // server side afhandeling van de woodcolour emit
