@@ -577,6 +577,7 @@ nav img{
 }
 .content p{
   color: white !important;
+  line-height: 1.4;
 }
 .modal:target {
     visibility: visible;
