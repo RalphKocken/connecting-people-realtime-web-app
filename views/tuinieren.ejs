@@ -24,7 +24,7 @@
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation: 
-    typing 1.5s steps(9, end)infinite,
+    typing .5s steps(9, end)infinite,
     blink-caret .5s step-end infinite;
   }
   /* The typing effect */
@@ -67,18 +67,18 @@
     <!-- offline state container -->
     <div class="offline-state">
       <div class="state-container">
-        <div class="loading-title">
+        <!-- <div class="loading-title"> -->
         <p>Er gaat iets mis met de verbinding, we proberen de connectie te herstellen...</p>
-      </div>
+      <!-- </div> -->
         <img class="offline-animation" src="/assets/animationErrorCropped.gif">
       </div>
     </div>
 
     <div class="reconnecting-state">
       <div class="state-container">
-        <div class="loading-title">
+        <!-- <div class="loading-title"> -->
         <p>De verbinding wordt hersteld...</p>
-      </div>
+      <!-- </div> -->
         <img class="reconnecting-animation" src="/assets/animationReconnecting.gif">
       </div>
     </div>
