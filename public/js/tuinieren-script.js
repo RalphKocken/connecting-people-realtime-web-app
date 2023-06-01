@@ -296,6 +296,7 @@ Draggable.create(".watering-can", {
   bounds: "body",
   onDrag: function () {
     const dropArea = document.querySelector(".plantbed");
+    dropArea.classList.add("plantbed-active")
     if (this.hitTest(dropArea, overlap)) {
       this.target.classList.add("dropper");
     } else {
@@ -304,7 +305,10 @@ Draggable.create(".watering-can", {
   },
 
   onDragEnd: function () {
+    const dropArea = document.querySelector(".plantbed");
+     dropArea.classList.remove("plantbed-active")
     if (this.target.classList.contains("dropper")) {
+      
       // this.target.classList.add("tilt-can");
       // this.target.addEventListener("animationend", () => {
 
