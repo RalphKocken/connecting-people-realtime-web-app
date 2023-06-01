@@ -1,6 +1,7 @@
 > _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
-# Titel
+# SamenTunineren 
+Een realtime omgeving waar gebruikers kunnen samen iets doen in Tuin.
 <!-- Geef je project een titel en schrijf in één zin wat het is -->
 
 ## Inhoudsopgave
@@ -13,6 +14,11 @@
   * [Licentie](#licentie)
 
 ## Beschrijving
+SamenTuin is een real-time applicatie waarbij spelers direct met elkaar in verbinding staan om samen te genieten van de rustgevende wereld van tuinieren. In dit spel is het doel om verschillende items naar de juiste plek te verplaatsen en zo de tuin te transformeren. Wanneer spelers erin slagen om de items op de juiste plek te leggen, heeft dit direct effect op de tuin. Prachtige bloemen bloeien op, grassen groeien en er ontstaat een betoverende omgeving. Wat dit spel uniek maakt, is dat spelers het samen kunnen spelen met meerdere mensen tegelijk, waarbij ze nauw samenwerken om de perfecte tuin te creëren. SamenTuin biedt een gezamenlijke en interactieve ervaring, waarbij spelers hun tuiniersvaardigheden combineren en een bloeiende tuin tot leven brengen.
+
+
+![Ontwerp zonder titel (16)](https://github.com/Tolga1999/connecting-people-realtime-web-app/assets/54691201/8e18b02b-6e53-4f8b-9b39-8bc086e44c2f)
+
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
