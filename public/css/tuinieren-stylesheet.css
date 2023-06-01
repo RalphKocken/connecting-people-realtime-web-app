@@ -68,7 +68,6 @@ body{
     font-family: var(--blackboard-font);
     z-index: 2;
     transition: 0.1s linear;
-
     color: orange;
     font-size: 3em;
 }
@@ -154,22 +153,31 @@ nav img{
     height: 30px;
     object-fit: contain;
 }
-.client-count{
+.client-count-menu{
     font-family: 'Caveat', cursive;
     position: absolute;
     left: 1rem;
     top: 1rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     background-color: rgba(255, 255, 255, 0.3);
     padding: 1rem;
+    gap: 1rem;
     border-radius: 24px;
     font-size: 35px;
     font-weight: 900;
     color: rgb(235, 81, 75);
 }
-.client-count img{
+.client-count-menu img{
     animation: shaking 1.5s linear infinite ;
+}
+.client-count-menu button{
+    all: unset;
+}
+.client-count{
+    display: flex;
+    align-items: center;
 }
 @keyframes shaking {
     0% { transform: rotate(0deg); }
@@ -296,7 +304,7 @@ nav img{
     left: 5%;
     width: 70px;
 }
- .birdhouse-active, .doghouse-active, .fence-active {
+ .birdhouse-active, .doghouse-active, .fence-active, .plantbed-active {
     animation: bridhouse-animatin 1s linear forwards;
  }
 
@@ -533,7 +541,55 @@ nav img{
     }
 }
 
-
+/* Game-details pop-up  */
+.box a {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: rgb(235, 81, 75);
+}
+.modal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+}
+.content {
+    position: absolute;
+    background-color: #274C43;
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+    border: 20px solid #966F33;;
+    width: 100%;
+    padding: 1rem;
+    left: 16%;
+    top: 18%;
+    border-radius: 4px;
+    z-index: 1111;
+}
+.content p{
+  color: white !important;
+}
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+.box-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #fe0606;
+    text-decoration: none;
+    font-size: 40px;
+}
 
 @media only screen and (min-width: 768px){
 
@@ -553,7 +609,7 @@ nav img{
         width: 100px;
     }
 
-    .client-count{
+    .client-count-menu{
     background-color: rgb(255 220 160);;
       
     }
@@ -655,14 +711,21 @@ nav img{
    .patch-6{
     animation-delay: 7s;
    }
+   .content{
+    width: 300% !important ;
+    padding: 1rem;
+    left: 190% !important ;
+    font-size: 26px;
 }
+}
+
 
 @media only screen and (min-width: 1024px){
 
     /* nav{
         flex-direction: row;
     } */
-
+  
     .birdhouse{
         left: 25%;
         width: 120px;
@@ -730,4 +793,5 @@ nav img{
         margin: 0 7em;
     }
     /* states media queries end */
+ 
 }

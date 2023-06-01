@@ -16,14 +16,27 @@
   <title>Tuinieren</title>
 </head>
 <style>
-  .loading-page {
-    position: absolute;
-    z-index: 99999;
-    background-color: #274C43;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    animation: breathe 3s ease-out infinite normal;
+  .loading-title {
+    color: #fff;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+    typing 3.5s steps(9, end)infinite,
+    blink-caret .5s step-end infinite;
+  }
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 50% }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #966F33 }
   }
 
   .loader {
@@ -33,14 +46,8 @@
     border-top: 5px solid rgba(255, 255, 255, 0.5);
     border-left: 3px solid #966F33;
     border-bottom: 1px solid rgb(235, 81, 75);
-    ;
     border-right: transparent;
     animation: spinner 0.8s linear infinite;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    right: 50%;
-    bottom: 50%;
   }
 
   @keyframes spinner {
@@ -55,29 +62,47 @@
 </style>
 
 <body>
-  <!-- <div class="loading-page">
-                <div class="loader"></div>
-            </div> -->
   <main>
 
     <!-- offline state container -->
     <div class="offline-state">
       <div class="state-container">
+        <div class="loading-title">
         <p>Er gaat iets mis met de verbinding, we proberen de connectie te herstellen...</p>
+      </div>
         <img class="offline-animation" src="/assets/animationErrorCropped.gif">
       </div>
     </div>
 
     <div class="reconnecting-state">
       <div class="state-container">
+        <div class="loading-title">
         <p>De verbinding wordt hersteld...</p>
+      </div>
         <img class="reconnecting-animation" src="/assets/animationReconnecting.gif">
       </div>
     </div>
 
     <div class="info">
       <!-- start text container -->
-      <div class="blackboard-text">
+      <div class="blackboard-text ">
+          <!-- <div class="loading-title">
+            <p>LOADING......</p>
+          </div>
+          <div class="loader">
+            <img src="/assets/yellowflower.png" alt="" width="50" height="50">
+          </div> -->
+
+          <!-- <div class="state-container">
+            <p>Er gaat iets mis met de verbinding, we proberen de connectie te herstellen...</p>
+            <img class="offline-animation" src="/assets/animationErrorCropped.gif">
+          </div> -->
+
+          <!-- <div class="state-container">
+            <p>De verbinding wordt hersteld...</p>
+            <img class="reconnecting-animation" src="/assets/animationReconnecting.gif">
+          </div> -->
+
         <p>Leuk dat je meedoet! Sleep alle tools naar de juiste plekken en bekijk wat er gebeurd. Succes! </p>
         <audio src="/assets/natuurgeluid.mp3" loop id="bg-audio"></audio>
         <div>
@@ -89,7 +114,6 @@
       </div>
     </div>
     <nav>
-      <a href="/"><img src="/assets/backbutton.png" class="back-button"></a>
       <img src="/assets/bone.png" class="bone">
       <img src="/assets/lawnmower.png" class="lawn-mower">
       <img src="/assets/bird-seed.png" class="bird-seed">
@@ -97,9 +121,43 @@
       <img src="/assets/paintbrush1.png" class="paintbrush">
     </nav>
     <img src="/assets/background.jpg" class="background-image">
-    <div class="client-count">
-      <img src="/assets/animal-client-live.png" alt="" width="50" height="50">
-      <span class="logit"></span>
+    <div class="client-count-menu">
+ 
+      
+      <div>
+        <div class="box client-count">
+         <img src="/assets/game-details.png" width="50" height="50">
+         <a href="#popup-box" >Game Details</a> 
+        </div>
+        <div id="popup-box" class="modal">
+        <div class="content">
+          <h1>Game Details</h1>
+          <a href="#"
+               class="box-close">
+                ×
+            </a>
+          <p>In SamenTuin kunnen spelers samen genieten van de rustgevende wereld van tuinieren. Het doel
+             is om verschillende items naar de juiste plek te verplaatsen en zo de tuin te transformeren. 
+             Wanneer spelers erin slagen om de items op de juiste plek te leggen, heeft dit een direct effect
+              op de tuin. Prachtige bloemen bloeien op, bomen groeien en er ontstaat een betoverende omgeving. 
+              Het unieke aspect van dit spel is dat spelers het samen kunnen spelen met meerdere mensen tegelijk,
+               waarbij ze nauw samenwerken om de perfecte tuin te creëren. SamenTuin biedt een gezamenlijke en interactieve ervaring, 
+               waarbij spelers hun tuiniersvaardigheden combineren en een bloeiende tuin tot leven brengen.</p>
+        </div>
+      </div>
+      </div>
+      
+      <div class="client-count">
+        <img src="/assets/animal-client-live.png" alt="" width="50" height="50">
+        <span class="logit"></span>
+      </div> 
+
+      <div>
+        <audio src="/assets/natuurgeluid.mp3" loop id="bg-audio"></audio>
+            <button id="spelen"><img src="/assets/speaker-2-svgrepo-com.svg" alt="muziekje aan" width="50" height="50"></button>
+            <button id="stoppen"><img src="/assets/speaker-disabled-svgrepo-com.svg" alt="muziekje uit" width="50" height="50"></button>
+        <a href="/"><img src="/assets/backbutton.png" class="back-button" width="50" height="50"></a>
+      </div>
     </div>
     <img src="/assets/plantbed.png" class="plantbed">
     <div class="flowerbed">
