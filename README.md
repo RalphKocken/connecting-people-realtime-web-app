@@ -59,6 +59,15 @@ gsap
 
 ## Installatie
 
+1. Om in de repository te werken en aanpassingen te maken moet je node.js downloaden versie: .
+2. Clone of download deze respository.
+3. Open hem in je code-editor.
+4. open de terminal en type npm install.
+5. Daarna door gerbruik van npm start krijg je een localhost link waar je de code live ziet.
+6. Check even de .env-exmpel bestnadje voor de Api.
+7. In de package-lock.json bestandje zie je alle modules die ik gebruik voor deze project.
+8. Live zetten van je project kan met behulp van cyclic
+
 ## Bronnen
 
 https://greensock.com/draggable/
