@@ -52,7 +52,9 @@ _breakdown schetsen:_
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
 
 Nodejs-v:v18.14.0
+<br>
 Npm-v:9.4.1
+<br>
 gsap
 
 ## Installatie
