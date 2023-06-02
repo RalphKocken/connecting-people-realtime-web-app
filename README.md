@@ -60,6 +60,7 @@ gsap
 ## Bronnen
 
 https://greensock.com/draggable/
+https://socket.io/docs/v4/
 
 
 ## Licentie
